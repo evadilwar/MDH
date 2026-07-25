@@ -7,6 +7,7 @@
 <meta name="description" content="Compass Wellbeing CIC is a not-for-profit social enterprise owned by East London NHS Foundation Trust, working across 16 boroughs in Bedfordshire, Luton and Central and North East London to connect, convene, support and deliver with the VCFSE sector." />
 <meta property="og:title" content="Compass Wellbeing CIC" />
 <meta property="og:description" content="Helping communities thrive and helping systems work better together." />
+<link rel="icon" type="image/png" href="assets/logo-mark.png" />
 <style>
   /* ============================================================
      COMPASS WELLBEING CIC
@@ -47,12 +48,9 @@
   header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,box-shadow .35s,padding .35s;padding:16px 0}
   header.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(14px);box-shadow:var(--shadow-sm);padding:9px 0}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-  .brand{display:flex;align-items:center;gap:.65rem}
-  .brand .mark{width:42px;height:42px;flex:0 0 auto}
-  .brand .wm{font-weight:800;font-size:1.2rem;letter-spacing:-.02em;line-height:1;color:#fff;transition:color .35s}
-  .brand .wm b{color:#fff;font-weight:800}
-  .brand .wm span{font-weight:600;opacity:.85}
-  header.scrolled .brand .wm{color:var(--deep)}
+  .brand{display:inline-flex;align-items:center;background:#fff;border-radius:12px;padding:7px 13px;line-height:0;transition:box-shadow .35s}
+  .brand img{height:28px;width:auto;display:block}
+  header.scrolled .brand{box-shadow:0 2px 10px rgba(38,38,74,.08)}
   .nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none}
   .nav-links a{font-weight:600;font-size:.95rem;color:rgba(255,255,255,.9);position:relative;transition:color .3s}
   header.scrolled .nav-links a{color:var(--slate)}
@@ -253,9 +251,8 @@
 
   footer{background:var(--deep-2);color:rgba(255,255,255,.75);padding:clamp(3rem,6vw,4.5rem) 0 2rem}
   .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem}
-  .foot-brand{display:flex;align-items:center;gap:.65rem;margin-bottom:1rem}
-  .foot-brand .mark{width:40px;height:40px}
-  .foot-brand .wm{color:#fff;font-weight:800;font-size:1.15rem;letter-spacing:-.02em}
+  .foot-brand{display:inline-flex;align-items:center;background:#fff;border-radius:12px;padding:9px 14px;margin-bottom:1.1rem;line-height:0}
+  .foot-brand img{height:30px;width:auto;display:block}
   footer h5{color:#fff;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;font-weight:700}
   footer ul{list-style:none}
   footer li{margin-bottom:.55rem;font-size:.92rem}
@@ -323,14 +320,7 @@
 <header id="header">
   <div class="wrap nav">
     <a href="#top" class="brand" aria-label="Compass Wellbeing home">
-      <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
-        <g transform="translate(24 24)">
-          <ellipse cx="-3.5" cy="0" rx="9.5" ry="17" transform="rotate(-20)" fill="url(#cwA)"/>
-          <ellipse cx="3.5" cy="0" rx="9.5" ry="17" transform="rotate(20)" fill="url(#cwB)" opacity=".9"/>
-          <circle r="3.2" fill="#fff"/>
-        </g>
-      </svg>
-      <span class="wm"><b>compass</b> <span>wellbeing</span></span>
+      <img src="assets/logo.png" alt="Compass Wellbeing" width="900" height="315" />
     </a>
     <nav>
       <ul class="nav-links" id="navlinks">
@@ -751,11 +741,7 @@
     <div class="foot-grid">
       <div>
         <div class="foot-brand">
-          <svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><g transform="translate(24 24)">
-            <ellipse cx="-3.5" cy="0" rx="9.5" ry="17" transform="rotate(-20)" fill="url(#cwA)"/>
-            <ellipse cx="3.5" cy="0" rx="9.5" ry="17" transform="rotate(20)" fill="url(#cwB)" opacity=".9"/>
-            <circle r="3.2" fill="#fff"/></g></svg>
-          <span class="wm">compass wellbeing</span>
+          <img src="assets/logo.png" alt="Compass Wellbeing" width="900" height="315" />
         </div>
         <p style="max-width:36ch">A not-for-profit Community Interest Company owned by East London NHS Foundation Trust. Focused. Trusted. Sustainable.</p>
       </div>
