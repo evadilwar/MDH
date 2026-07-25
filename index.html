@@ -252,6 +252,39 @@
   .partner .fund{position:absolute;top:0;right:0;font-size:.58rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;padding:.28rem .6rem;border-bottom-left-radius:12px}
   .count-line{text-align:center;margin-top:1.6rem;font-size:.88rem;color:var(--slate);font-weight:600}
 
+  /* ---------- News ---------- */
+  .news{background:var(--mist)}
+  .news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.4rem}
+  .ncard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column}
+  .ncard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .ncard .thumb{aspect-ratio:16/9;overflow:hidden}
+  .ncard .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+  .ncard:hover .thumb img{transform:scale(1.06)}
+  .ncard .body{padding:1.4rem 1.4rem 1.6rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+  .ncard .meta{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--purple)}
+  .ncard h3{font-size:1.1rem;line-height:1.25}
+  .ncard p{font-size:.92rem}
+  .ncard .more{margin-top:auto;padding-top:.6rem;font-weight:700;color:var(--pink);font-size:.9rem;display:inline-flex;align-items:center;gap:.4rem}
+  .ncard .more svg{width:15px;height:15px;transition:transform .3s var(--ease)}
+  .ncard:hover .more svg{transform:translateX(4px)}
+
+  /* ---------- Team ---------- */
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem}
+  .member{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.7rem 1.3rem;text-align:center;transition:.3s var(--ease)}
+  .member:hover{box-shadow:var(--shadow);transform:translateY(-5px);border-color:transparent}
+  .member .avatar{width:86px;height:86px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.4rem;overflow:hidden}
+  .member .avatar img{width:100%;height:100%;object-fit:cover}
+  .member:nth-child(4n+1) .avatar{background:linear-gradient(135deg,var(--purple),var(--blue))}
+  .member:nth-child(4n+2) .avatar{background:linear-gradient(135deg,var(--pink),var(--purple))}
+  .member:nth-child(4n+3) .avatar{background:linear-gradient(135deg,var(--blue),var(--deep))}
+  .member:nth-child(4n+4) .avatar{background:linear-gradient(135deg,var(--deep),var(--pink))}
+  .member h4{font-size:1rem}
+  .member .role{font-size:.84rem;color:var(--slate);font-weight:600;margin-top:.15rem}
+
+  /* ---------- Careers ---------- */
+  .careers-cta{display:inline-flex;margin-top:1.8rem}
+  .benefit-row{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+
   /* ---------- Contact / Footer ---------- */
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
   .office{display:flex;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line)}
@@ -343,9 +376,9 @@
         <li><a href="#about">Who we are</a></li>
         <li><a href="#impact">Our impact</a></li>
         <li><a href="#locations">Where we work</a></li>
-        <li><a href="#support">Support</a></li>
         <li><a href="#partners">Partners</a></li>
-        <li><a href="#events">Convening</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#careers">Careers</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -758,6 +791,103 @@
   </div>
 </section>
 
+<!-- ============ NEWS ============ -->
+<section class="section news" id="news">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">News &amp; highlights</span>
+      <h2>What's happening at Compass Wellbeing.</h2>
+      <p class="lead" style="margin-inline:auto">A few recent highlights. Connect this section to your news feed to publish live updates.</p>
+    </div>
+    <div class="news-grid">
+      <article class="ncard reveal">
+        <div class="thumb"><img src="assets/award-stage.jpg" alt="Compass Wellbeing receiving the Living Wage Leader Award" loading="lazy"></div>
+        <div class="body">
+          <span class="meta">Award · July 2026</span>
+          <h3>Living Wage Leader Award (Third Sector)</h3>
+          <p>Named a winner at the Living Wage Foundation's 2026 Champion Awards at Church House, Westminster – recognised for fair, secure work across the voluntary sector.</p>
+          <a class="more" href="#">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="ncard reveal" data-d="1">
+        <div class="thumb"><img src="assets/gallery-funday.jpg" alt="The Power of Small gathering" loading="lazy"></div>
+        <div class="body">
+          <span class="meta">Event · June 2026</span>
+          <h3>The first Power of Small gathering</h3>
+          <p>Around 100 people from some 75 organisations came together to connect and collaborate, with BSL interpretation and live visual scribing throughout.</p>
+          <a class="more" href="#">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="ncard reveal" data-d="2">
+        <div class="thumb"><img src="assets/gallery-football.jpg" alt="Children and young people supported through funded projects" loading="lazy"></div>
+        <div class="body">
+          <span class="meta">Grants · 2025/26</span>
+          <h3>52 organisations funded through NCEL CAMHS grants</h3>
+          <p>The fourth year of our children and young people's mental health grants supported 52 VCFSE organisations across 13 boroughs.</p>
+          <a class="more" href="#partners">See the partners <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="ncard reveal">
+        <div class="thumb"><img src="assets/gallery-team-dinner.jpg" alt="Partners at a Lunch and Learn session" loading="lazy"></div>
+        <div class="body">
+          <span class="meta">Series · June 2026</span>
+          <h3>Lunch &amp; Learn co-design series launched</h3>
+          <p>A new series bringing partners together to co-design practical solutions around shared priorities across the sector.</p>
+          <a class="more" href="#">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="section" id="team">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Our team</span>
+      <h2>The people behind Compass Wellbeing.</h2>
+      <p class="lead" style="margin-inline:auto">A committed team working across communities, the NHS and the VCFSE sector, backed by an experienced Board of Directors.</p>
+    </div>
+    <div class="team-grid reveal">
+      <div class="member"><div class="avatar">CW</div><h4>Name Surname</h4><p class="role">Chief Executive</p></div>
+      <div class="member"><div class="avatar">CW</div><h4>Name Surname</h4><p class="role">Director / Senior lead</p></div>
+      <div class="member"><div class="avatar">CW</div><h4>Name Surname</h4><p class="role">Partnerships &amp; development</p></div>
+      <div class="member"><div class="avatar">CW</div><h4>Name Surname</h4><p class="role">Programmes &amp; delivery</p></div>
+      <div class="member"><div class="avatar">CW</div><h4>Name Surname</h4><p class="role">Finance &amp; operations</p></div>
+      <div class="member"><div class="avatar">CW</div><h4>Name Surname</h4><p class="role">Communications</p></div>
+      <div class="member"><div class="avatar">CW</div><h4>Name Surname</h4><p class="role">Board Chair</p></div>
+      <div class="member"><div class="avatar">CW</div><h4>Name Surname</h4><p class="role">Non-Executive Director</p></div>
+    </div>
+    <p class="prog-note" style="text-align:center">Placeholder profiles – add each person's photo, name and role. Drop a headshot into <code>assets/</code> and replace the initials with an image to complete the cards.</p>
+  </div>
+</section>
+
+<!-- ============ CAREERS ============ -->
+<section class="section" id="careers" style="padding-top:0">
+  <div class="wrap">
+    <div class="impact reveal">
+      <div class="impact-photo"><img src="assets/living-wage.jpg" alt="Compass Wellbeing celebrated as a Living Wage and Living Hours employer" loading="lazy"></div>
+      <div class="impact-copy">
+        <span class="eyebrow hero-eyebrow">Careers</span>
+        <h2 style="margin:.8rem 0 1rem">A great place to work.</h2>
+        <p class="lead">“A great place to work where people are trusted to innovate, build partnerships and create meaningful change.” We invest in our people and pay fairly – because that is how good work gets done.</p>
+        <div class="benefit-row">
+          <span class="badge">Real Living Wage employer</span>
+          <span class="badge">Living Hours employer</span>
+          <span class="badge">Good Business Charter</span>
+          <span class="badge">Certified Social Enterprise</span>
+          <span class="badge">Learning &amp; development</span>
+          <span class="badge">Purpose-driven work</span>
+        </div>
+        <a href="#contact" class="btn btn-primary careers-cta">See current vacancies
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="prog-note" style="text-align:center">Point the "vacancies" button at your live roles (your website, NHS Jobs or CharityJob) to keep this current.</p>
+  </div>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section class="section" id="contact">
   <div class="wrap contact-grid">
@@ -803,13 +933,15 @@
       <div><h5>Explore</h5><ul>
         <li><a href="#about">Who we are</a></li>
         <li><a href="#impact">Our impact</a></li>
+        <li><a href="#support">Support for the sector</a></li>
         <li><a href="#locations">Where we work</a></li>
         <li><a href="#partners">Partners</a></li>
       </ul></div>
       <div><h5>Get involved</h5><ul>
-        <li><a href="#contact">Partner with us</a></li>
+        <li><a href="#news">News &amp; highlights</a></li>
         <li><a href="#events">Sponsor an event</a></li>
-        <li><a href="#awards">Our credentials</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#team">Our team</a></li>
         <li><a href="#contact">Contact us</a></li>
       </ul></div>
       <div><h5>Reach</h5><ul>
@@ -819,8 +951,8 @@
     <div class="foot-bottom">
       <span>© <span id="yr"></span> Compass Wellbeing CIC. Registered in England &amp; Wales (Company no. 08451249).</span>
       <div class="socials">
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 105 0 2.5 2.5 0 00-2.52-2.5zM3 8.75h4v12H3zM9 8.75h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v6.31h-4v-5.6c0-1.33-.02-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H9z"/></svg></a>
-        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8-9.2L1 2h6.9l4.8 6.3zm-2.4 18h1.9L7.6 4H5.6z"/></svg></a>
+        <a href="https://www.linkedin.com/company/compass-wellbeing-cic" aria-label="Compass Wellbeing on LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 105 0 2.5 2.5 0 00-2.52-2.5zM3 8.75h4v12H3zM9 8.75h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v6.31h-4v-5.6c0-1.33-.02-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H9z"/></svg></a>
+        <a href="https://x.com/CompassWB" aria-label="Compass Wellbeing on X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8-9.2L1 2h6.9l4.8 6.3zm-2.4 18h1.9L7.6 4H5.6z"/></svg></a>
       </div>
     </div>
   </div>
