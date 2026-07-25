@@ -48,11 +48,11 @@
   header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,box-shadow .35s,padding .35s;padding:16px 0}
   header.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(14px);box-shadow:var(--shadow-sm);padding:9px 0}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-  .brand{display:inline-flex;align-items:center;background:#fff;border-radius:12px;padding:7px 13px;line-height:0;transition:box-shadow .35s}
+  .brand{flex:0 0 auto;display:inline-flex;align-items:center;background:#fff;border-radius:12px;padding:7px 13px;line-height:0;transition:box-shadow .35s}
   .brand img{height:28px;width:auto;display:block}
   header.scrolled .brand{box-shadow:0 2px 10px rgba(38,38,74,.08)}
-  .nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none}
-  .nav-links a{font-weight:600;font-size:.95rem;color:rgba(255,255,255,.9);position:relative;transition:color .3s}
+  .nav-links{display:flex;align-items:center;flex-wrap:nowrap;gap:clamp(.9rem,1.7vw,1.6rem);list-style:none}
+  .nav-links a{font-weight:600;font-size:.94rem;white-space:nowrap;color:rgba(255,255,255,.9);position:relative;transition:color .3s}
   header.scrolled .nav-links a{color:var(--slate)}
   .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--pink);transition:width .3s var(--ease)}
   .nav-links a:hover{color:#fff}
@@ -63,31 +63,34 @@
   .burger span{display:block;height:2.5px;width:24px;background:#fff;border-radius:3px;transition:.3s}
   header.scrolled .burger span{background:var(--ink)}
 
-  /* ---------- Hero ---------- */
-  .hero{position:relative;min-height:100vh;display:flex;align-items:center;background:radial-gradient(120% 120% at 82% 0%,#5b5a92 0%,var(--deep) 45%,var(--deep-2) 100%);color:#fff;overflow:hidden;padding:140px 0 90px}
-  .hero .wrap{position:relative;z-index:3;display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
+  /* ---------- Hero (rolling banner) ---------- */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;color:#fff;padding:150px 0 120px}
+  .hero-slides{position:absolute;inset:0;z-index:0}
+  .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s var(--ease)}
+  .hero-slide img{width:100%;height:100%;object-fit:cover}
+  .hero-slide.active{opacity:1}
+  .hero-slide.active img{animation:kenburns 7.5s ease-out forwards}
+  @keyframes kenburns{from{transform:scale(1.12)}to{transform:scale(1.22)}}
+  .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(45,44,76,.96) 0%,rgba(60,59,96,.88) 32%,rgba(60,59,96,.55) 64%,rgba(45,44,76,.42) 100%)}
+  .hero .wrap{position:relative;z-index:3}
+  .hero-inner{max-width:760px}
   .hero-eyebrow{color:#fff;opacity:.95}
   .hero-eyebrow::before{background:linear-gradient(90deg,var(--blue),var(--pink))}
-  .hero h1{color:#fff;font-size:clamp(2.4rem,5.2vw,4.2rem);margin:1.1rem 0 1.3rem}
+  .hero h1{color:#fff;font-size:clamp(2.4rem,5.4vw,4.4rem);margin:1.1rem 0 1.3rem;text-wrap:balance}
   .hero h1 .grad{background:linear-gradient(100deg,#ffd0dd,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p{color:rgba(255,255,255,.88);font-size:clamp(1.05rem,1.6vw,1.26rem);max-width:52ch}
+  .hero p{color:rgba(255,255,255,.9);font-size:clamp(1.05rem,1.6vw,1.28rem);max-width:54ch}
   .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
-  .hero-trust{margin-top:2.4rem;display:flex;align-items:center;gap:.8rem;color:rgba(255,255,255,.78);font-size:.85rem;flex-wrap:wrap}
+  .hero-trust{margin-top:2.4rem;display:flex;align-items:center;gap:.8rem;color:rgba(255,255,255,.85);font-size:.85rem;flex-wrap:wrap}
   .hero-trust .dot{width:6px;height:6px;border-radius:50%;background:var(--blue)}
-  .hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
-  .hero-photo{position:relative;border-radius:26px;overflow:hidden;box-shadow:var(--shadow-lg);z-index:2;aspect-ratio:4/3;width:100%}
-  .hero-photo img{width:100%;height:100%;object-fit:cover}
-  .hero-badge{position:absolute;z-index:4;background:#fff;color:var(--ink);border-radius:16px;padding:.85rem 1.1rem;box-shadow:var(--shadow);display:flex;align-items:center;gap:.7rem}
-  .hero-badge.bl{left:-18px;bottom:26px}
-  .hero-badge .hb-ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;flex:0 0 auto}
-  .hero-badge b{display:block;font-size:1.1rem;line-height:1}
-  .hero-badge small{color:var(--slate);font-size:.72rem;font-weight:600}
-  .rose{position:absolute;width:118%;max-width:none;opacity:.5;z-index:1;animation:spin 70s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
+  .hero-dots{position:absolute;left:0;right:0;bottom:clamp(60px,10vh,120px);z-index:3;display:flex;gap:.55rem;justify-content:center}
+  .hero-dots button{width:34px;height:5px;border-radius:3px;border:0;background:rgba(255,255,255,.38);cursor:pointer;padding:0;transition:.35s var(--ease)}
+  .hero-dots button:hover{background:rgba(255,255,255,.7)}
+  .hero-dots button.active{background:#fff;width:52px}
+  .hero-dots button:focus-visible{outline:2px solid #fff;outline-offset:3px}
   .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:1}
   .blob.b1{width:320px;height:320px;background:var(--pink);top:-60px;right:-40px}
   .blob.b2{width:280px;height:280px;background:var(--blue);bottom:-80px;left:6%}
-  .hero-wave{position:absolute;left:0;right:0;bottom:-1px;z-index:2;line-height:0}
+  .hero-wave{position:absolute;left:0;right:0;bottom:-1px;z-index:4;line-height:0}
   .hero-wave svg{width:100%;height:auto;display:block}
 
   /* ---------- Stats ---------- */
@@ -333,11 +336,15 @@
   @media (max-width:1000px){
     .focus-grid{grid-template-columns:repeat(3,1fr)}
   }
+  /* collapse nav to menu button before the tabs get cramped */
+  @media (max-width:992px){
+    .nav-links,.nav-cta{display:none}
+    .nav-links.open{display:flex;position:absolute;top:100%;left:16px;right:16px;flex-direction:column;align-items:flex-start;background:#fff;padding:1.4rem;border-radius:18px;box-shadow:var(--shadow);gap:1.1rem;margin-top:8px}
+    .nav-links.open a{color:var(--ink);font-size:1rem}
+    .burger{display:flex}
+  }
   @media (max-width:960px){
-    .hero .wrap{grid-template-columns:1fr;text-align:center}
-    .hero p,.lead{margin-inline:auto}
-    .hero-actions,.hero-trust{justify-content:center}
-    .hero-visual{order:-1;max-width:460px;margin:0 auto}
+    .hero{padding:120px 0 90px}
     .stats-grid{grid-template-columns:repeat(2,1fr);gap:0}
     .stat:nth-child(2)::after{display:none} .stat{padding:1.3rem}
     .about-grid,.loc-grid,.contact-grid,.impact,.awards-grid,.event .inner{grid-template-columns:1fr}
@@ -345,14 +352,11 @@
     .impact-photo{min-height:260px}
   }
   @media (max-width:640px){
-    .nav-links,.nav-cta{display:none}
-    .nav-links.open{display:flex;position:absolute;top:100%;left:16px;right:16px;flex-direction:column;background:#fff;padding:1.4rem;border-radius:18px;box-shadow:var(--shadow);gap:1rem;margin-top:8px}
-    .nav-links.open a{color:var(--ink)}
-    .burger{display:flex}
     .focus-grid{grid-template-columns:1fr 1fr}
     .foot-grid{grid-template-columns:1fr 1fr}
     .stats-grid{transform:translateY(-40px)}
     .awards-photos .sm{aspect-ratio:4/3}
+    .hero-trust{font-size:.8rem;gap:.55rem}
   }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto}.reveal{opacity:1;transform:none}}
 </style>
@@ -389,9 +393,17 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
+  <div class="hero-slides" aria-hidden="true">
+    <div class="hero-slide active"><img src="assets/community-day.jpg" alt="" width="1500" height="844" /></div>
+    <div class="hero-slide"><img src="assets/gallery-football.jpg" alt="" width="1200" height="871" /></div>
+    <div class="hero-slide"><img src="assets/gallery-funday.jpg" alt="" width="1200" height="675" /></div>
+    <div class="hero-slide"><img src="assets/gallery-partner.jpg" alt="" width="1200" height="675" /></div>
+    <div class="hero-slide"><img src="assets/award-stage.jpg" alt="" width="1500" height="1000" /></div>
+  </div>
+  <div class="hero-overlay"></div>
   <span class="blob b1"></span><span class="blob b2"></span>
   <div class="wrap">
-    <div>
+    <div class="hero-inner">
       <span class="eyebrow hero-eyebrow">A not-for-profit CIC · Owned by East London NHS Foundation Trust</span>
       <h1>Helping communities thrive and helping <span class="grad">systems work better together.</span></h1>
       <p>We connect, convene, support and – where needed – deliver, across 16 boroughs in Bedfordshire, Luton and Central and North East London.</p>
@@ -407,23 +419,8 @@
         <span>Certified Social Enterprise</span>
       </div>
     </div>
-
-    <div class="hero-visual">
-      <svg class="rose" viewBox="0 0 400 400" aria-hidden="true">
-        <circle cx="200" cy="200" r="150" stroke="rgba(255,255,255,.16)" stroke-width="2" fill="none"/>
-        <circle cx="200" cy="200" r="110" stroke="rgba(255,255,255,.12)" stroke-width="1.5" stroke-dasharray="4 8" fill="none"/>
-        <path d="M200 40 L222 200 L200 360 L178 200 Z" fill="#c74168" opacity=".9"/>
-        <path d="M40 200 L200 178 L360 200 L200 222 Z" fill="#00a1d6" opacity=".85"/>
-      </svg>
-      <div class="hero-photo">
-        <img src="assets/community-day.jpg" alt="Compass Wellbeing team volunteering at a community fun day in the park" loading="eager" width="1500" height="844" />
-      </div>
-      <div class="hero-badge bl">
-        <span class="hb-ic" style="background:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span>
-        <div><b>3,000+</b><small>VCFSE organisations in our network</small></div>
-      </div>
-    </div>
   </div>
+  <div class="hero-dots" id="heroDots" role="tablist" aria-label="Banner images"></div>
   <div class="hero-wave" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,64 C240,120 480,20 720,44 C960,68 1200,120 1440,72 L1440,120 L0,120 Z" fill="#ffffff"/></svg></div>
 </section>
 
@@ -987,6 +984,38 @@
   const setRegion = k => { regions.forEach(r => r.classList.toggle('active', r.dataset.region===k)); mapRegions.forEach(m => m.classList.toggle('dim', m.dataset.region!==k)); };
   regions.forEach(r => { r.addEventListener('mouseenter', () => setRegion(r.dataset.region)); r.addEventListener('click', () => setRegion(r.dataset.region)); });
   mapRegions.forEach(m => { m.addEventListener('mouseenter', () => setRegion(m.dataset.region)); m.addEventListener('click', () => setRegion(m.dataset.region)); });
+
+  // hero rolling banner
+  (function(){
+    const slides = [...document.querySelectorAll('.hero-slide')];
+    const dotsWrap = document.getElementById('heroDots');
+    if (!slides.length || !dotsWrap) return;
+    let hi = 0;
+    slides.forEach((s,i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Show banner image ' + (i+1));
+      if (i===0) b.classList.add('active');
+      b.addEventListener('click', () => { go(i); restart(); });
+      dotsWrap.appendChild(b);
+    });
+    const dots = [...dotsWrap.children];
+    const go = i => {
+      slides[hi].classList.remove('active'); dots[hi].classList.remove('active');
+      hi = i;
+      slides[hi].classList.add('active'); dots[hi].classList.add('active');
+    };
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let timer = null;
+    const play = () => { if (reduce || timer) return; timer = setInterval(() => go((hi+1)%slides.length), 5500); };
+    const stop = () => { if (timer){ clearInterval(timer); timer = null; } };
+    const restart = () => { stop(); play(); };
+    const hero = document.querySelector('.hero');
+    hero.addEventListener('mouseenter', stop);
+    hero.addEventListener('mouseleave', play);
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : play());
+    play();
+  })();
 
   /* ---------- Partner directory ----------
      Source: NCEL CAMHS Provider Collaborative 2025/26 grant scheme (Y4) awards summary.
