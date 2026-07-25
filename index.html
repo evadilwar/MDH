@@ -210,6 +210,22 @@
   .quote-scribe .big{font-size:1.5rem;font-weight:800;line-height:1.3;color:#fff}
   .quote-scribe cite{display:block;margin-top:1rem;font-size:.85rem;color:rgba(255,255,255,.75);font-style:normal}
 
+  /* ---------- Offer / support for sector ---------- */
+  .offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.4rem}
+  .offer{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.9rem 1.7rem;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);position:relative;overflow:hidden}
+  .offer::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+  .offer:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+  .offer:hover::before{transform:scaleX(1)}
+  .offer .circle{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:1.1rem}
+  .offer .circle svg{width:28px;height:28px}
+  .offer h3{font-size:1.15rem;margin-bottom:.5rem}
+  .offer p{font-size:.96rem}
+  .offer:nth-child(5n+1) .circle{background:var(--purple)} .offer:nth-child(5n+1)::before{background:var(--purple)}
+  .offer:nth-child(5n+2) .circle{background:var(--pink)}   .offer:nth-child(5n+2)::before{background:var(--pink)}
+  .offer:nth-child(5n+3) .circle{background:var(--blue)}   .offer:nth-child(5n+3)::before{background:var(--blue)}
+  .offer:nth-child(5n+4) .circle{background:var(--deep)}   .offer:nth-child(5n+4)::before{background:var(--deep)}
+  .offer:nth-child(5n+5) .circle{background:var(--purple)} .offer:nth-child(5n+5)::before{background:var(--purple)}
+
   /* ---------- Partners ---------- */
   .partners{background:linear-gradient(180deg,#fff,var(--mist))}
   .prog-note{max-width:64ch;margin:.4rem auto 0;font-size:.9rem;color:var(--slate)}
@@ -327,6 +343,7 @@
         <li><a href="#about">Who we are</a></li>
         <li><a href="#impact">Our impact</a></li>
         <li><a href="#locations">Where we work</a></li>
+        <li><a href="#support">Support</a></li>
         <li><a href="#partners">Partners</a></li>
         <li><a href="#events">Convening</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -666,6 +683,44 @@
           <cite>Captured live at our first Power of Small gathering.</cite>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUPPORT FOR THE SECTOR ============ -->
+<section class="section" id="support">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Support for the sector</span>
+      <h2>Helping voluntary and community organisations grow, connect and deliver more.</h2>
+      <p class="lead" style="margin-inline:auto">A bespoke suite of support for voluntary, community, faith and social enterprise organisations – from the smallest grassroots groups upward.</p>
+    </div>
+    <div class="offer-grid">
+      <article class="offer reveal">
+        <div class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h3>Funding &amp; bid support</h3>
+        <p>We help groups find, apply for and manage funding – so good ideas get backed and delivered.</p>
+      </article>
+      <article class="offer reveal" data-d="1">
+        <div class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Governance &amp; policy support</h3>
+        <p>Practical guidance and training to help organisations meet governance standards and stay resilient.</p>
+      </article>
+      <article class="offer reveal" data-d="2">
+        <div class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></div>
+        <h3>Networking &amp; connections</h3>
+        <p>We connect organisations to each other and to the system, creating space for meaningful collaboration.</p>
+      </article>
+      <article class="offer reveal">
+        <div class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div>
+        <h3>Training &amp; development</h3>
+        <p>Skills, learning and professional development that build capacity right across the sector.</p>
+      </article>
+      <article class="offer reveal" data-d="1">
+        <div class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+        <h3>Space to meet</h3>
+        <p>Free meeting room facilities for small community groups, in the heart of the communities we serve.</p>
+      </article>
     </div>
   </div>
 </section>
